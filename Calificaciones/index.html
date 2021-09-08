@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calificaciones</title>
+
+	<style>
+		.verde{
+	    	color: green;		
+		}
+		.rojo{
+			color: red;
+		}
+		
+
+	</style>
+</head>
+<body style="background:pink;">
+	<header style="padding-left: 40px;"> 
+	<h1>Este programa sirve para calificar alumnos de una escuela</h1><br>
+	</header>
+
+<div style="padding-left: 40px;">	 
+	<input type="" name="" id="nombre" placeholder="Nombre" autocomplete="off" style="padding-left: 100px; padding-top:10px ;" >
+	<input type="" name="" id="apellido" placeholder="Apellido" autocomplete="off" style="padding-left: 100px; padding-top:10px ;"><br>
+   <h5>Selecciona el Curso</h5>
+   <select id="año" name="año">
+      <script type="text/javascript">
+         for (var i = 0; i <10; i++) {
+            document.write("<option>" + (i+1) + "</option>"   )
+         }
+      </script>     
+   </select>
+    
+    <select id="letra" name="letra">
+    <option id="A">A</option>
+    <option id="B">B</option>
+    <option id="C">C</option>
+    <option id="D">D</option>
+   </select>
+   
+   <br><br>
+	<input type="" name="" id="input" placeholder="Agrega una Calificacion" autocomplete="off" style="padding-left: 100px; padding-top:10px ;"><br><br>
+	<button id="btn_calificar" >Calificar</button>   
+</div>
+
+  <div id="aprobacion"  style="padding-left:40px">
+     <h1 id="estado"></h1>
+  </div>
+
+  <p id="cantidad" style="padding-left:40px"></p>
+  <p id="aprobados" style="padding-left:40px"></p>
+  <p id="desaprobados" style="padding-left:40px"></p>
+
+<script type="text/javascript">
+   let cantidadDeAlumnos=0;
+   let cantidadDeAprobados=0;
+   let cantidadDeDesaprobados=0;
+	 var nombreA=document.getElementById('nombre')
+	 var apellidoA=document.getElementById('apellido')
+     var input=document.getElementById('input')
+     var btn=document.getElementById('btn_calificar')
+     var estado=document.getElementById('estado')
+     var aprobacion=document.getElementById('aprobacion')
+     let años=document.getElementById('año')
+     let curso=document.getElementById('letra')
+     let cantidad=document.getElementById('cantidad')
+     let aprobados=document.getElementById('aprobados')
+     let desaprobados=document.getElementById('desaprobados')
+     
+  btn.addEventListener('click',function(){  
+           
+      let valor=input.value
+      let nombreAlumno=nombreA.value
+      let apellidoAlumno=apellidoA.value
+      let cursoAlumno=curso.value
+      let añoAlumno=año.value
+
+
+      
+        if (valor==1 || valor==2 || valor==3 ){
+         cantidadDeAlumnos++
+         cantidadDeDesaprobados++
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' + apellidoAlumno + ' de ' +añoAlumno + cursoAlumno +' es Muy deficiente' 
+         desaprobados.innerHTML="Desaprobaron " + cantidadDeDesaprobados + " alumnos"
+      var puntuacion=document.createElement('h1')
+     	var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('rojo')
+       
+     
+         
+         
+         }
+
+         else if(valor==4 || valor==5)
+         {
+            cantidadDeAlumnos++
+            cantidadDeDesaprobados++
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' + apellidoAlumno + ' de '+ añoAlumno+ cursoAlumno +' es Insuficiente'
+         desaprobados.innerHTML="Desaprobaron " + cantidadDeDesaprobados + " alumnos" 
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+     	var puntuacion=document.createElement('h1')
+      var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('rojo')
+     
+         
+      }
+         
+           else if(valor==6)
+         {
+            cantidadDeAlumnos++
+            cantidadDeAprobados++
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' +apellidoAlumno +  ' de '+ añoAlumno + cursoAlumno + ' es Suficiente' 
+         aprobados.innerHTML="Aprobaron " + cantidadDeAprobados + " alumnos"
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+       var puntuacion=document.createElement('h1')
+     	 var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('verde')
+         
+   
+
+         }  
+         
+         else if(valor==7 || valor==8)
+         {
+         cantidadDeAlumnos++
+         cantidadDeAprobados++
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' + apellidoAlumno + ' de '+ cursoAlumno + añoAlumno + ' es Buena' 
+         aprobados.innerHTML="Aprobaron " + cantidadDeAprobados + " alumnos"
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+      var puntuacion=document.createElement('h1')
+      var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('verde')
+       
+ 
+         } 
+          else if(valor==9)
+         {
+         cantidadDeAlumnos++
+         cantidadDeAprobados++
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' +apellidoAlumno + ' de '+ añoAlumno + cursoAlumno + ' es Notable' 
+         aprobados.innerHTML="Aprobaron " + cantidadDeAprobados + " alumnos"
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+      var puntuacion=document.createElement('h1')
+      var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('verde')
+          
+      
+         }  
+         else if(valor==10)
+         {
+         cantidadDeAlumnos++ 
+         cantidadDeAprobados++ 
+        	let estadoAlumno='La calificacion del alumno ' + '' +  nombreAlumno + ' ' + apellidoAlumno + ' de '+ añoAlumno + cursoAlumno + ' es Sobresaliente'
+         aprobados.innerHTML="Aprobaron " + cantidadDeAprobados + " alumnos" 
+         cantidad.innerHTML="Se calificaron " + cantidadDeAlumnos + " alumnos"
+      var puntuacion=document.createElement('h1')
+      var contenido=document.createTextNode(estadoAlumno)
+         puntuacion.appendChild(contenido)
+         aprobacion.appendChild(puntuacion)
+         puntuacion.classList.add('verde')
+         
+  
+         }
+         else if(valor>10)
+         {
+            alert("Debe ingresar un valor del 1 al 10")
+
+         }
+         else if(nombreAlumno==''){
+            alert("Debe Completar el campo Nombre")
+         }
+         else if(apellidoAlumno==''){
+            alert("Debe completar el campo Apellido")
+         }
+         else if(cursoAlumno==''||añoAlumno==''){
+             alert("Debe completar el campo Curso")
+         }
+         valor.value=""
+         nombreAlumno.value=""
+         apellidoAlumno.value=""
+         cursoAlumno.value=""
+         añoAlumno.value=""
+     }
+)
+
+</script>
+</body>
+</html>
